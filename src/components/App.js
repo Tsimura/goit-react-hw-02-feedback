@@ -1,7 +1,12 @@
-export function App() {
+import React from 'react';
+import Feedback from './Feedback/Feedback';
+
+const App = () => {
   return (
     <>
-      <p>Feedback</p>
+      <Feedback />
     </>
   );
-}
+};
+
+export default App;

@@ -1,24 +1,55 @@
 import React, { Component } from 'react';
+import FeedbackOptions from './FeedbackOptions ';
+import Statistics from './Statistics';
 
 class Feedback extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+    visible: false,
+  };
+  clickBtnGood = () => {
+    this.setState(prevState => ({ good: prevState.good + 1 }));
+  };
+  clickBtnNeutral = () => {
+    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
+  };
+  clickBtnBad = () => {
+    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  };
+
+  countTotalFeedback = () =>
+    this.state.good + this.state.neutral + this.state.bad;
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round(
+      (this.state.good * 100) /
+        (this.state.good + this.state.neutral + this.state.bad),
+    );
+  };
+  show = () => {
+    this.setState({ visible: true });
+  };
+
   render() {
     return (
       <div className="Feedback">
         <h2 className="Feedback__title">Please leave feedback</h2>
-        <div className="Feedback__buttonField">
-          <button type="button">Good</button>
-          <button type="button">Neutral</button>
-          <button type="button">Bad</button>
-        </div>
-        <div>
-          <p>Statistics</p>
-          <p>Good: 0</p>
-          <p>Neutral: 0</p>
-          <p>Bad: 0</p>
-        </div>
+        <FeedbackOptions
+          onGood={this.clickBtnGood}
+          onNeutral={this.clickBtnNeutral}
+          onBad={this.clickBtnBad}
+        />
+        <Statistics
+          valueGood={this.state.good}
+          valueNeutral={this.state.neutral}
+          valueBad={this.state.bad}
+          total={this.countTotalFeedback()}
+          positiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
+        />
       </div>
     );
   }
 }
-
 export default Feedback;

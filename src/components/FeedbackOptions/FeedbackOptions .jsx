@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FeedbackOptionsBtn, BtnStyle } from './FeedbackOptions.styled';
+import { FeedbackOptionsBtn } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ onGood, onNeutral, onBad }) => (
   <FeedbackOptionsBtn>
     <button type="button" onClick={onGood}>

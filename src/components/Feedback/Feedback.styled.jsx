@@ -4,13 +4,10 @@ export const FeedbackWrapper = styled.section`
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+  margin: 40px auto auto;
+  padding: 20px;
   width: 780px;
-  height: 500px;
+  height: 440px;
   border-radius: 5px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -19,4 +16,9 @@ export const FeedbackWrapper = styled.section`
   background-position: bottom;
   background-size: cover;
   background-color: rgb(135 132 132);
+  h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 `;

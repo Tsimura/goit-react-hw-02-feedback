@@ -1,3 +1,6 @@
 import React from 'react';
-const Notification = () => <p>There is no feedback</p>;
+import { NotificationTitle } from './Notification.styled';
+const Notification = () => (
+  <NotificationTitle>There is no feedback</NotificationTitle>
+);
 export default Notification;

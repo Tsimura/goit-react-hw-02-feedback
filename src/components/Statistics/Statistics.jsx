@@ -1,14 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ImHappy, ImNeutral, ImAngry } from 'react-icons/im';
+import { DiCoffeescript } from 'react-icons/di';
+import {
+  StatisticsStyle,
+  StatisticsTitle,
+  Motivation,
+} from './Statistics.styled';
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
-  <div>
-    <p>Statistics</p>
-    <p>👍: {good}</p>
-    <p>😐: {neutral}</p>
-    <p>👎: {bad}</p>
-    <p>Total: {total}</p>
-    <p>Positive feedback: {positivePercentage} %</p>
-  </div>
+  <StatisticsStyle>
+    <StatisticsTitle>Statistics</StatisticsTitle>
+    <div>
+      <p>
+        <ImHappy size={40} color="green" /> : {good}
+      </p>
+      <p>
+        <ImNeutral size={40} color="yellow" /> : {neutral}
+      </p>
+      <p>
+        <ImAngry size={40} color="red" /> : {bad}
+      </p>
+    </div>
+    <div>
+      <p>Total: {total}</p>
+      <p>Positive feedback: {positivePercentage} %</p>
+    </div>
+    <Motivation>
+      Have a nice day! <DiCoffeescript size={50} />
+    </Motivation>
+  </StatisticsStyle>
 );
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,

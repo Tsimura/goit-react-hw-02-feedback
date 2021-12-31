@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { FeedbackOptionsBtn, BtnStyle } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ onGood, onNeutral, onBad }) => (
-  <div className="Feedback__FeedbackOptions ">
+  <FeedbackOptionsBtn>
     <button type="button" onClick={onGood}>
       Good
     </button>
@@ -10,6 +12,11 @@ const FeedbackOptions = ({ onGood, onNeutral, onBad }) => (
     <button type="button" onClick={onBad}>
       Bad
     </button>
-  </div>
+  </FeedbackOptionsBtn>
 );
+FeedbackOptions.propTypes = {
+  onGood: PropTypes.func.isRequired,
+  onNeutral: PropTypes.func.isRequired,
+  onBad: PropTypes.func.isRequired,
+};
 export default FeedbackOptions;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import FeedbackOptions from './FeedbackOptions ';
-import Statistics from './Statistics';
-
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions ';
+import Notification from '../Notification/Notification';
+import Statistics from '../Statistics/Statistics';
+import { FeedbackWrapper } from './Feedback.styled';
 class Feedback extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
-    visible: false,
   };
   clickBtnGood = () => {
     this.setState(prevState => ({ good: prevState.good + 1 }));
@@ -18,38 +18,41 @@ class Feedback extends Component {
   clickBtnBad = () => {
     this.setState(prevState => ({ bad: prevState.bad + 1 }));
   };
-
   countTotalFeedback = () =>
     this.state.good + this.state.neutral + this.state.bad;
-
   countPositiveFeedbackPercentage = () => {
     return Math.round(
       (this.state.good * 100) /
         (this.state.good + this.state.neutral + this.state.bad),
     );
   };
-  show = () => {
-    this.setState({ visible: true });
-  };
-
   render() {
+    const { good } = this.state;
+    const { neutral } = this.state;
+    const { bad } = this.state;
+    const totalValue = this.countTotalFeedback();
     return (
-      <div className="Feedback">
-        <h2 className="Feedback__title">Please leave feedback</h2>
+      <FeedbackWrapper>
+        <h2>Please leave feedback</h2>
         <FeedbackOptions
           onGood={this.clickBtnGood}
           onNeutral={this.clickBtnNeutral}
           onBad={this.clickBtnBad}
         />
-        <Statistics
-          valueGood={this.state.good}
-          valueNeutral={this.state.neutral}
-          valueBad={this.state.bad}
-          total={this.countTotalFeedback()}
-          positiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
-        />
-      </div>
+        {totalValue ? (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <Notification />
+        )}
+      </FeedbackWrapper>
     );
   }
 }
+
 export default Feedback;

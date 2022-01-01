@@ -44,9 +44,9 @@ class Feedback extends Component {
         <FeedbackOptions
           options={Object.keys(this.state)}
           onLeaveFeedback={this.clickBtn}
-          onGood={this.clickBtnGood}
-          onNeutral={this.clickBtnNeutral}
-          onBad={this.clickBtnBad}
+        //    onGood={this.clickBtnGood}
+        //    onNeutral={this.clickBtnNeutral}
+        //    onBad={this.clickBtnBad}
         />
         {totalValue ? (
           <Statistics

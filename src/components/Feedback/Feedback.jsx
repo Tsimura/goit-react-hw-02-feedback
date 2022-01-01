@@ -9,14 +9,21 @@ class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
-  clickBtnGood = () => {
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-  clickBtnNeutral = () => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-  clickBtnBad = () => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  // =========================================================================
+  // clickBtnGood = e => {
+  //   this.setState(prevState => ({ good: prevState.good + 1 }));
+  // };
+  // clickBtnNeutral = () => {
+  //   this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
+  // };
+  // clickBtnBad = () => {
+  //   this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  // };
+  // =========================================================================
+  clickBtn = event => {
+    this.setState(prevState => ({
+      [event]: prevState[event] + 1,
+    }));
   };
   countTotalFeedback = () =>
     this.state.good + this.state.neutral + this.state.bad;
@@ -35,6 +42,8 @@ class Feedback extends Component {
       <FeedbackWrapper>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.clickBtn}
           onGood={this.clickBtnGood}
           onNeutral={this.clickBtnNeutral}
           onBad={this.clickBtnBad}

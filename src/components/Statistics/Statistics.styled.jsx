@@ -16,11 +16,6 @@ export const StatisticsStyle = styled.div`
     justify-content: space-between;
   }
 `;
-export const StatisticsTitle = styled.p`
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-`;
 export const Motivation = styled.p`
   display: flex;
   align-items: center;

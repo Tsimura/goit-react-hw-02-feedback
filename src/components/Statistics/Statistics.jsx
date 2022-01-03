@@ -1,15 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { ImHappy, ImNeutral, ImAngry } from 'react-icons/im';
 import { DiCoffeescript } from 'react-icons/di';
-import {
-  StatisticsStyle,
-  StatisticsTitle,
-  Motivation,
-} from './Statistics.styled';
+import { StatisticsStyle, Motivation } from './Statistics.styled';
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   <StatisticsStyle>
-    <StatisticsTitle>Statistics</StatisticsTitle>
     <div>
       <p>
         <ImHappy size={40} color="green" /> : {good}

@@ -1,6 +1,5 @@
 import React from 'react';
 import Feedback from './Feedback/Feedback';
-
 const App = () => {
   return (
     <>
@@ -8,5 +7,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;

@@ -26,6 +26,8 @@ class Feedback extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const totalValue = this.countTotalFeedback();
+    const countPositiveFeedbackPercentage =
+      this.countPositiveFeedbackPercentage();
     return (
       <FeedbackWrapper>
         <Section title="Please leave feedback">
@@ -41,7 +43,7 @@ class Feedback extends Component {
               neutral={neutral}
               bad={bad}
               total={totalValue}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
+              positivePercentage={countPositiveFeedbackPercentage}
             />
           ) : (
             <Notification message="There is no feedback" />
